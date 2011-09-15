@@ -75,11 +75,11 @@ var handleInput = function () {
 var update = function (elapsed) {
 
 	// Update hero animation
-	hero.animTimer += (elapsed);
+	hero.animTimer += elapsed;
 	if (hero.animTimer >= hero.animDelay) {
 		// Enough time has passed to update the animation frame
 		hero.animTimer = 0; // Reset the animation timer
-		hero.animFrame++;
+		++hero.animFrame;
 		if (hero.animFrame >= hero.animNumFrames) {
 			// We've reached the end of the animation frames; rewind
 			hero.animFrame = 0;
@@ -108,8 +108,8 @@ var update = function (elapsed) {
 
 	// Move the hero
 	var move = (hero.speed * (elapsed / 1000));
-	hero.x += Math.floor(move * hero.direction.x);
-	hero.y += Math.floor(move * hero.direction.y);
+	hero.x += Math.round(move * hero.direction.x);
+	hero.y += Math.round(move * hero.direction.y);
 
 };
 
